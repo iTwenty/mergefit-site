@@ -28,10 +28,13 @@
 
     <div class="flex sm:flex-row flex-col justify-center p-12">
         <div class="flex-initial mx-12 mb-12">
-            <img class="h-96" src="static/preview_framed.png" alt="Merge Preview">
+            <video class="h-96" autoplay loop muted playsinline preload="metadata"
+                poster="static/feature_merge_poster.jpg">
+                <source src="static/feature_merge.mp4" type="video/mp4">
+            </video>
         </div>
         <article class="flex-1 prose">
-            <p class="text-3xl font-bold">Merge</p>
+            <p class="text-3xl font-bold">Merge with confidence</p>
             <p>
                 Merge multiple workouts of the same type into one complete workout.
             </p>
@@ -42,7 +45,6 @@
             <p>
                 Like the preview? Tap Merge and let MergeFit combine all the data into a single new workout.
             </p>
-
         </article>
     </div>
 
@@ -50,7 +52,7 @@
 
     <div class="flex sm:flex-row flex-col justify-center p-12">
         <article class="flex-1 prose sm:order-1 order-2">
-            <p class="text-3xl font-bold">Trim</p>
+            <p class="text-3xl font-bold">Precision Trimming</p>
             <p>
                 Trim any workout to cut out unwanted time from the start or end.
             </p>
@@ -58,31 +60,43 @@
                 Adjust the start and end points with a simple slider, or use step controls for precise edits.
             </p>
             <p>
-                Once it looks right, tap Trim and MergeFit creates a clean new workout with only the parts you want.
+                Once it looks right, tap Trim and MergeFit creates a new workout with only the parts you want.
             </p>
         </article>
         <div class="flex-initial mx-12 mb-12 sm:order-2 order-1">
-            <img class="h-96" src="static/trim_framed.png" alt="Trim Preview">
+            <video class="h-96" autoplay loop muted playsinline preload="metadata"
+                poster="static/feature_trim_poster.jpg">
+                <source src="static/feature_trim.mp4" type="video/mp4">
+            </video>
         </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- <div class="flex sm:flex-row flex-col justify-center p-12">
+    <div class="flex sm:flex-row flex-col justify-center p-12">
         <div class="flex-initial mx-12 mb-12">
-            <img class="h-96" src="static/details_framed.png" alt="List of workouts">
+            <video class="h-96" autoplay loop muted playsinline preload="metadata"
+                poster="static/feature_streams_poster.jpg">
+                <source src="static/feature_streams.mp4" type="video/mp4">
+            </video>
         </div>
         <article class="flex-1 prose">
-            <p class="text-3xl font-bold">Merge</p>
+            <p class="text-3xl font-bold">Handle overlaps beautifully</p>
             <p>
-                Preview looks good? Simply tap the button and let MergeFit work its magic! MergeFit will read all
-                relevant data from the selected workouts and create a new workout by combining all of it into a new
-                workout.
+                When workouts overlap in time, the built-in timeline graph visually displays gaps and overlaps.
+            </p>
+            <p>
+                Granular stream selection gives you complete control. Choose exactly which metrics (like Heart Rate or
+                GPS)
+                to keep from each workout.
+            </p>
+            <p>
+                Handle complex scenarios like merging cadence from your indoor bike trainer with HR from your watch.
             </p>
         </article>
     </div>
 
-    <div class="divider"></div> -->
+    <div class="divider"></div>
 
     <p class="text-3xl font-bold px-12">More Features</p>
 
@@ -123,7 +137,7 @@
             <a class="link link-hover" href="https://itwenty.me/about/">About</a>
         </nav>
         <aside>
-            <p>© Jaydeep Joshi</p>
+            <p>© 2026 Jaydeep Joshi</p>
         </aside>
     </footer>
 
