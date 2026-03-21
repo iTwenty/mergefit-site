@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-itunes-app" content="app-id=6714483581">
+    <title>Privacy Policy | MergeFit</title>
+    <meta name="description" content="Privacy Policy for MergeFit iOS App.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="assets/favicon.png" rel="icon" type="image/png">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'apple-black': '#000000',
+                        'apple-gray': '#1d1d1f',
+                        'apple-light': '#f5f5f7',
+                        'accent-blue': '#2997ff',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '10%': { opacity: '0' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #000000;
+            color: #f5f5f7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hide scrollbar for clean aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+
+        /* Glass Navbar */
+        .nav-glass {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Custom list styling */
+        .prose-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #2997ff;
+        }
+    </style>
+</head>
+<body class="selection:bg-accent-blue selection:text-white relative overflow-x-hidden">
+
+    <!-- Ambient Background Glows -->
+    <div class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+                <img src="assets/icn.png" alt="MergeFit App Icon" class="w-8 h-8 rounded-lg shadow-lg object-cover" onerror="this.src='assets/favicon.png'">
+                <span class="text-xl font-semibold tracking-tight text-white">MergeFit</span>
+            </a>
+            <a href="https://apps.apple.com/us/app/mergefit/id6714483581" target="_blank" rel="noopener noreferrer" 
+               class="bg-white text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors duration-200"
+               aria-label="Download MergeFit on the App Store">
+                Get App
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 min-h-[85vh]">
+        <div class="max-w-3xl mx-auto px-6 animate-fade-in-up">
+            
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-white">Privacy Policy</h1>
+            
+            <div class="space-y-10 text-lg md:text-xl text-zinc-400 font-light leading-relaxed">
+                
+                <p>
+                    MergeFit is committed to protecting your privacy. We do not collect any personally identifiable information (PII) from our users.
+                </p>
+
+                <section>
+                    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4 text-white">Usage Data</h2>
+                    <p class="mb-4">
+                        We use TelemetryDeck to collect anonymized usage data. This helps us understand how our users are using our app and how we can improve it.
+                    </p>
+                    <ul class="prose-list text-zinc-300">
+                        <li>TelemetryDeck does not collect any personally identifiable information.</li>
+                        <li>All data sent is fully anonymized and cannot be traced back to any individual.</li>
+                    </ul>
+                    <p class="mt-4">
+                        You can read more in <a href="https://telemetrydeck.com/privacy/" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:text-blue-400 underline decoration-blue-500/30 underline-offset-4 transition-colors">TelemetryDeck's Privacy Policy</a>.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4 text-white">Health Data</h2>
+                    <p class="mb-4">
+                        MergeFit uses Apple Health to read and write workout data, such as distance, duration and type of activity.
+                    </p>
+                    <ul class="prose-list text-zinc-300">
+                        <li>All health-related data accessed or generated by MergeFit stays entirely on your device.</li>
+                        <li>This data is never uploaded to external servers or shared with third parties.</li>
+                    </ul>
+                </section>
+
+                <section class="pt-4 border-t border-zinc-900">
+                    <p>
+                        If you have any questions or concerns, feel free to <a href="mailto:jaydeepmjoshi@gmail.com" class="text-accent-blue hover:text-blue-400 underline decoration-blue-500/30 underline-offset-4 transition-colors">contact us</a>.
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-900 bg-black pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <img src="assets/icn.png" alt="MergeFit App Icon" class="w-6 h-6 rounded-[0.25rem] shadow-sm object-cover" onerror="this.src='assets/favicon.png'">
+                <span class="text-lg font-semibold tracking-tight text-white">MergeFit</span>
+            </div>
+            
+            <div class="flex flex-col md:items-end gap-3 text-sm">
+                <div class="flex flex-wrap justify-center gap-6 text-zinc-400">
+                    <a href="https://itwenty.me/about" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-200">About</a>
+                    <a href="mailto:jaydeepmjoshi@gmail.com" class="hover:text-white transition-colors duration-200">Contact</a>
+                    <a href="https://mergefit.pressdeck.io" class="hover:text-white transition-colors duration-200">Press Kit</a>
+                    <a href="privacy.html" class="text-white transition-colors duration-200">Privacy Policy</a>
+                </div>
+                <div class="text-zinc-600 text-center md:text-right">
+                    <span>&copy; <script>document.write(new Date().getFullYear())</script> MergeFit. All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar blur effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('nav-glass');
+                nav.classList.remove('bg-transparent', 'border-transparent');
+            } else {
+                nav.classList.remove('nav-glass');
+                nav.classList.add('bg-transparent', 'border-transparent');
+            }
+        });
+    </script>
+</body>
+</html>

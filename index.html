@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-itunes-app" content="app-id=6714483581">
+    <title>MergeFit | Easiest way to merge and trim your Apple Health Workouts</title>
+    <meta name="description" content="MergeFit allows you to easily merge and trim your workouts recorded using Apple Watch, or any fitness tracker that syncs workouts to Apple Health.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="assets/favicon.png" rel="icon" type="image/png">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'apple-black': '#000000',
+                        'apple-gray': '#1d1d1f',
+                        'apple-light': '#f5f5f7',
+                        'accent-blue': '#2997ff',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '10%': { opacity: '0' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #000000;
+            color: #f5f5f7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hide scrollbar for clean aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+
+        /* Utilities for scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Sleek Video Gradient Fallback */
+        .video-fallback {
+            background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
+        }
+        
+        /* Glass Navbar */
+        .nav-glass {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="selection:bg-accent-blue selection:text-white relative overflow-x-hidden">
+
+    <!-- Ambient Background Glows -->
+    <div class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <img src="assets/icn.png" alt="MergeFit App Icon" class="w-8 h-8 rounded-lg shadow-lg object-cover" onerror="this.src='assets/favicon.png'">
+                <span class="text-xl font-semibold tracking-tight text-white">MergeFit</span>
+            </div>
+            <a href="https://apps.apple.com/us/app/mergefit/id6714483581" target="_blank" rel="noopener noreferrer" 
+               class="bg-white text-black px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors duration-200"
+               aria-label="Download MergeFit on the App Store">
+                Get App
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center mb-32">
+            <div class="animate-fade-in-up" style="animation-delay: 0.1s;">
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-white leading-tight max-w-4xl">
+                    Easiest way to <br class="hidden md:block" />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">merge and trim</span> <br class="hidden md:block"/>
+                    your workouts.
+                </h1>
+                <p class="text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto mb-10 font-light">
+                    Combine your Apple Health workouts into a single comprehensive session, or trim unwanted time from the start or end.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://apps.apple.com/us/app/mergefit/id6714483581" target="_blank" rel="noopener noreferrer" 
+                       class="flex items-center justify-center gap-3 bg-white text-black px-6 py-3 rounded-2xl hover:scale-105 transition-all duration-300" aria-label="Download on the App Store">
+                        <svg class="w-8 h-8" viewBox="0 0 384 512" fill="currentColor">
+                            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                        </svg>
+                        <div class="text-left flex flex-col justify-center mt-0.5">
+                            <span class="text-[11px] leading-none font-medium text-gray-800">Download on the</span>
+                            <span class="text-xl leading-tight font-semibold tracking-tight">App Store</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 1: Merge -->
+        <section class="reveal max-w-7xl mx-auto px-6 mb-32 md:mb-48">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
+                <div class="w-full md:w-1/2 flex justify-center md:justify-start order-2 md:order-1">
+                    <!-- iPhone Frame Wrapper -->
+                    <div class="relative w-[280px] h-[590px] md:w-[320px] md:h-[670px] bg-black rounded-[3rem] md:rounded-[3.5rem] p-2 md:p-3 shadow-2xl shadow-blue-500/10 border-[6px] md:border-[8px] border-zinc-800 shrink-0">
+                        <!-- Dynamic Island -->
+                        <div class="absolute top-4 md:top-5 left-1/2 -translate-x-1/2 w-[100px] h-6 bg-black rounded-full z-20"></div>
+                        <!-- Screen -->
+                        <div class="relative w-full h-full bg-zinc-900 rounded-[2.2rem] md:rounded-[2.8rem] overflow-hidden video-fallback">
+                            <!-- Note: Added standard paths to existing domain. Modify src if path changes. -->
+                            <video src="assets/feature_merge.mp4" autoplay loop muted playsinline preload="metadata"
+                poster="assets/feature_merge_poster.jpg" class="w-full h-full object-cover">
+                                <!-- Fallback image if video fails -->
+                            </video>
+                            
+                            <!-- Overlay gradients to make it pop -->
+                            <div class="absolute inset-0 border border-white/10 rounded-[2.2rem] md:rounded-[2.8rem] pointer-events-none"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 order-1 md:order-2">
+                    <div class="inline-flex items-center justify-center p-3 bg-blue-500/10 rounded-2xl mb-6 text-blue-400">
+                        <i data-feather="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">Merge effortlessly.</h2>
+                    <p class="text-xl text-zinc-400 font-light leading-relaxed mb-6">
+                        Merge multiple workouts of the same type into one complete workout. Preview key metrics like distance, heart rate, energy burned and see the full route before merging, so you know exactly what the result will be.
+                    </p>
+                    <p class="text-lg text-zinc-500 font-light">
+                        Like the preview? Tap Merge and let MergeFit combine all the data into a single new workout.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 2: Trim -->
+        <section class="reveal max-w-7xl mx-auto px-6 mb-32 md:mb-48">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
+                <div class="w-full md:w-1/2">
+                    <div class="inline-flex items-center justify-center p-3 bg-purple-500/10 rounded-2xl mb-6 text-purple-400">
+                        <i data-feather="scissors" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">Trim the excess.</h2>
+                    <p class="text-xl text-zinc-400 font-light leading-relaxed mb-6">
+                        Trim any workout to cut out unwanted time from the start or end. Adjust the start and end points with a simple slider, or use step controls for precise edits.
+                    </p>
+                    <p class="text-lg text-zinc-500 font-light">
+                        Once it looks right, tap Trim and MergeFit creates a clean new workout with only the parts you want.
+                    </p>
+                </div>
+                
+                <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+                    <!-- iPhone Frame Wrapper -->
+                    <div class="relative w-[280px] h-[590px] md:w-[320px] md:h-[670px] bg-black rounded-[3rem] md:rounded-[3.5rem] p-2 md:p-3 shadow-2xl shadow-purple-500/10 border-[6px] md:border-[8px] border-zinc-800 shrink-0">
+                        <!-- Dynamic Island -->
+                        <div class="absolute top-4 md:top-5 left-1/2 -translate-x-1/2 w-[100px] h-6 bg-black rounded-full z-20"></div>
+                        <!-- Screen -->
+                        <div class="relative w-full h-full bg-zinc-900 rounded-[2.2rem] md:rounded-[2.8rem] overflow-hidden video-fallback">
+                             <!-- Note: Added standard paths to existing domain. Modify src if path changes. -->
+                            <video src="assets/feature_trim.mp4" autoplay loop muted playsinline preload="metadata"
+                poster="assets/feature_trim_poster.jpg" class="w-full h-full object-cover"></video>
+                            <div class="absolute inset-0 border border-white/10 rounded-[2.2rem] md:rounded-[2.8rem] pointer-events-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 3: Overlaps -->
+        <section class="reveal max-w-7xl mx-auto px-6 mb-32 md:mb-48">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
+                <div class="w-full md:w-1/2 flex justify-center md:justify-start order-2 md:order-1">
+                    <!-- iPhone Frame Wrapper -->
+                    <div class="relative w-[280px] h-[590px] md:w-[320px] md:h-[670px] bg-black rounded-[3rem] md:rounded-[3.5rem] p-2 md:p-3 shadow-2xl shadow-rose-500/10 border-[6px] md:border-[8px] border-zinc-800 shrink-0">
+                        <!-- Dynamic Island -->
+                        <div class="absolute top-4 md:top-5 left-1/2 -translate-x-1/2 w-[100px] h-6 bg-black rounded-full z-20"></div>
+                        <!-- Screen -->
+                        <div class="relative w-full h-full bg-zinc-900 rounded-[2.2rem] md:rounded-[2.8rem] overflow-hidden video-fallback">
+                             <!-- Note: Assuming overlap video path. Modify src if needed. -->
+                            <video src="assets/feature_streams.mp4" autoplay loop muted playsinline preload="metadata"
+                poster="assets/feature_streams_poster.jpg" class="w-full h-full object-cover"></video>
+                            <div class="absolute inset-0 border border-white/10 rounded-[2.2rem] md:rounded-[2.8rem] pointer-events-none"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 order-1 md:order-2">
+                    <div class="inline-flex items-center justify-center p-3 bg-rose-500/10 rounded-2xl mb-6 text-rose-400">
+                        <i data-feather="minimize-2" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">Resolve overlaps.</h2>
+                    <p class="text-xl text-zinc-400 font-light leading-relaxed mb-6">
+                        When workouts overlap in time, the built-in timeline graph visually displays gaps and overlaps. Granular stream selection gives you complete control. Choose exactly which metrics (like Heart Rate or GPS) to keep from each workout.
+                    </p>
+                    <p class="text-lg text-zinc-500 font-light">
+                        Handle complex scenarios like merging cadence from your indoor bike trainer with HR from your watch.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Grid (Get Notified, Export, Strava) -->
+        <section class="reveal max-w-7xl mx-auto px-6 mb-32">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-3xl hover:bg-zinc-800/50 transition-colors duration-300">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-feather="bell" class="text-green-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Get notified.</h3>
+                    <p class="text-zinc-400 font-light">
+                        MergeFit can automatically notify you whenever new workouts are eligible to be merged with existing ones.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-3xl hover:bg-zinc-800/50 transition-colors duration-300">
+                    <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-feather="share-2" class="text-orange-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Upload to Strava.</h3>
+                    <p class="text-zinc-400 font-light">
+                        Need to use your data elsewhere? Seamlessly upload your newly merged or trimmed workouts directly to Strava.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-3xl hover:bg-zinc-800/50 transition-colors duration-300">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <i data-feather="download" class="text-blue-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-white">Export as FIT.</h3>
+                    <p class="text-zinc-400 font-light">
+                        MergeFit includes as much of the original workout data as possible when exporting workouts as universal FIT files.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="reveal max-w-4xl mx-auto px-6 mb-32 text-center md:text-left">
+            <h2 class="text-3xl font-bold tracking-tight mb-8 text-white text-center">Common Use Cases</h2>
+            <div class="space-y-4">
+                <div class="bg-zinc-900/40 p-6 rounded-2xl border border-zinc-800/50 flex gap-4 items-start">
+                    <div class="mt-1 flex-shrink-0">
+                        <i data-feather="check-circle" class="text-accent-blue w-6 h-6"></i>
+                    </div>
+                    <p class="text-zinc-300 font-light text-lg">
+                        <strong class="text-white font-medium">Accidentally hit Stop instead of Pause?</strong> Start a new workout and merge the two sessions back into one continuous workout.
+                    </p>
+                </div>
+                <div class="bg-zinc-900/40 p-6 rounded-2xl border border-zinc-800/50 flex gap-4 items-start">
+                    <div class="mt-1 flex-shrink-0">
+                        <i data-feather="check-circle" class="text-accent-blue w-6 h-6"></i>
+                    </div>
+                    <p class="text-zinc-300 font-light text-lg">
+                        <strong class="text-white font-medium">Forgot to hit Stop after finishing?</strong> Use trimming to keep only the meaningful part of your workout and drop the car ride home.
+                    </p>
+                </div>
+                <div class="bg-zinc-900/40 p-6 rounded-2xl border border-zinc-800/50 flex gap-4 items-start">
+                    <div class="mt-1 flex-shrink-0">
+                        <i data-feather="check-circle" class="text-accent-blue w-6 h-6"></i>
+                    </div>
+                    <p class="text-zinc-300 font-light text-lg">
+                        <strong class="text-white font-medium">Recorded across devices to capture different metrics?</strong> Use stream selection to combine all streams into a single workout.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="reveal max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-white">Take control of your health data</h2>
+            <a href="https://apps.apple.com/us/app/mergefit/id6714483581" target="_blank" rel="noopener noreferrer" 
+               class="inline-block bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-transform duration-300">
+                Download MergeFit Now
+            </a>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-900 bg-black pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <img src="assets/icn.png" alt="MergeFit App Icon" class="w-6 h-6 rounded-[0.25rem] shadow-sm object-cover" onerror="this.src='assets/favicon.png'">
+                <span class="text-lg font-semibold tracking-tight text-white">MergeFit</span>
+            </div>
+            
+            <div class="flex flex-col md:items-end gap-3 text-sm">
+                <div class="flex flex-wrap justify-center gap-6 text-zinc-400">
+                    <a href="https://itwenty.me/about" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-200">About</a>
+                    <a href="mailto:jaydeepmjoshi@gmail.com" class="hover:text-white transition-colors duration-200">Contact</a>
+                    <a href="https://mergefit.pressdeck.io" target="_blank" class="hover:text-white transition-colors duration-200">Press Kit</a>
+                    <a href="privacy.html" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
+                </div>
+                <div class="text-zinc-600 text-center md:text-right">
+                    <span>&copy; <script>document.write(new Date().getFullYear())</script> MergeFit. All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Navbar blur effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('nav-glass');
+                nav.classList.remove('bg-transparent', 'border-transparent');
+            } else {
+                nav.classList.remove('nav-glass');
+                nav.classList.add('bg-transparent', 'border-transparent');
+            }
+        });
+
+        // Scroll Reveal Animation via Intersection Observer
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: stop observing once revealed
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.1, // Trigger when 10% visible
+            rootMargin: "0px 0px -50px 0px" // Trigger slightly before it comes fully into view
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
